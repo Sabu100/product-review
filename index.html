@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Modern Gadget Pro</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <h1>Product Review Hub</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Product Info Section -->
+        <section id="product-info" class="card">
+            <h2>Modern Gadget Pro</h2>
+            <img src="https://picsum.photos/seed/techgadget/600/400" alt="Modern Gadget Pro" id="product-image">
+            <div id="average-rating-display" class="average-rating">
+                <!-- Populated by JS -->
+            </div>
+            <p id="product-description">
+                Discover the sleek and powerful Modern Gadget Pro. Built with cutting-edge technology and premium materials for an unparalleled user experience.
+            </p>
+        </section>
+
+        <!-- Review Area -->
+        <div id="review-area">
+            <!-- Review Form Section -->
+            <section id="review-form-section" class="card">
+                <h3>Share Your Experience</h3>
+                <form id="add-review-form">
+                    <div class="form-group">
+                        <label for="reviewer-name">Your Name <span class="optional">(Optional)</span></label>
+                        <input type="text" id="reviewer-name" name="reviewer-name" placeholder="e.g., Alex Smith">
+                    </div>
+
+                    <!-- Interactive Emoji Rating -->
+                    <div class="form-group">
+                        <label>Your Rating <span class="required">*</span></label>
+                        <div class="emoji-rating-input-container">
+                            <div class="emoji-rating-input" data-rating="0" aria-label="Rate this product from 1 to 5 emojis">
+                                <!-- Emojis with data-label -->
+                                <span class="emoji-rating" data-value="1" data-label="Terrible" role="button" aria-label="Rate 1 out of 5: Terrible">😠</span>
+                                <span class="emoji-rating" data-value="2" data-label="Bad" role="button" aria-label="Rate 2 out of 5: Bad">🙁</span>
+                                <span class="emoji-rating" data-value="3" data-label="Okay" role="button" aria-label="Rate 3 out of 5: Okay">😐</span>
+                                <span class="emoji-rating" data-value="4" data-label="Good" role="button" aria-label="Rate 4 out of 5: Good">🙂</span>
+                                <span class="emoji-rating" data-value="5" data-label="Excellent" role="button" aria-label="Rate 5 out of 5: Excellent">😄</span>
+                            </div>
+                            <!-- Display for hover label -->
+                            <span id="rating-label-display" class="rating-label-display"></span>
+                            <!-- Hidden input to store the actual value -->
+                            <input type="hidden" id="rating" name="rating" required value="">
+                        </div>
+                         <div id="rating-error" class="error-message" style="display: none;">Please select a rating.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Your Comment <span class="required">*</span></label>
+                        <textarea id="comment" name="comment" rows="5" required placeholder="What did you like or dislike?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">Submit Review</button>
+                </form>
+            </section>
+
+            <!-- Reviews Display Section -->
+            <section id="reviews-display-section" class="card">
+                 <h3>Customer Reviews</h3>
+                 <!-- Filters -->
+                 <div id="filter-section">
+                    <h4>Filter & Search</h4>
+                    <div class="filter-controls">
+                        <div class="form-group">
+                            <label for="search-term">Search Reviews</label>
+                            <input type="search" id="search-term" placeholder="Keyword (e.g., battery, screen)">
+                        </div>
+                        <div class="form-group">
+                            <label for="filter-rating">Minimum Rating</label>
+                            <!-- Updated Filter Options -->
+                            <select id="filter-rating">
+                                <option value="all">Show All</option>
+                                <option value="5">😄 Excellent (5+)</option>
+                                <option value="4">🙂 Good (4+)</option>
+                                <option value="3">😐 Okay (3+)</option>
+                                <option value="2">🙁 Bad (2+)</option>
+                                <option value="1">😠 Terrible (1+)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review List -->
+                <div id="reviews-list">
+                    <!-- Dynamically populated -->
+                    <p class="no-reviews-message">Be the first to review the Modern Gadget Pro!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="current-year"></span> Modern Reviews Inc.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
